@@ -1,6 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-
+/**
+ * Driver Library for AWS FPS
+ *
+ * @package AWS_FPS
+ * @author Kevin Smith
+ */
 class Aws_fps extends CI_Driver_Library {
 	
 	// Codeigniter superobject
