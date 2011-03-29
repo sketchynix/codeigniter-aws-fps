@@ -1,7 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /** 
  *  PHP Version 5
- *
+ * 
+ *  @author		 Amazon, modified to work with CodeIgniter by Kevin Smith
  *  @category    Amazon
  *  @package     Amazon_FPS
  *  @copyright   Copyright 2008-2010 Amazon Technologies, Inc.

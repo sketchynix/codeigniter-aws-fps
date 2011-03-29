@@ -1,6 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /** 
+ * 
+ * This CodeIgniter driver library consists of heavily modified versions
+ * of Amazon's PHP library for use with Flexible Payments Service. Where
+ * it has been modified, it has been properly documented.
+ * 
  *  PHP Version 5
  *
  *  @category    Amazon
@@ -23,6 +28,16 @@
 
 require_once str_replace('drivers', 'base', dirname(__FILE__)).'/CBUIPipeline.php';
 
+/**
+ * Get CBUI URL
+ * 
+ * Returns the properly formatted CBUI URL needed 
+ * to get authorization before sending a
+ * pay/reserve request.
+ *
+ * @package default
+ * @author Kevin Smith
+ */
 class Aws_fps_get_cbui_url extends Amazon_FPS_CBUIPipeline {
 	
 	protected $_ci = '';
@@ -34,6 +49,15 @@ class Aws_fps_get_cbui_url extends Amazon_FPS_CBUIPipeline {
 		log_message('debug', 'AWS FPS (Single Use) Initialized');
 	}
 	
+	/**
+	 * Single Use
+	 * 
+	 * Returns a CBUI URL to authorize a single-use transaction.
+	 *
+	 * @param array $params 
+	 * @return string
+	 * @author Kevin Smith
+	 */
 	function single(array $params) {
 		parent::Amazon_FPS_CBUIPipeline("SingleUse", $this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
 		
@@ -45,7 +69,14 @@ class Aws_fps_get_cbui_url extends Amazon_FPS_CBUIPipeline {
 		return $this->getUrl();
 		
     }
-
+	
+	/**
+	 * Throws up an error if any of the parameters don't validate.
+	 *
+	 * @param string $parameters 
+	 * @return void
+	 * @author Amazon, modified by Kevin Smith
+	 */
 	function validateParameters($parameters) {
 		//mandatory parameters for single use pipeline
 		if (!isset($parameters["transactionAmount"])) {
