@@ -5,6 +5,7 @@ AWS FPS is a driver-based library for CodeIgniter that provides a much easier wa
 ## get\_cbui\_url driver
 
 ### single($params)
+Token expires 3 hours after creation.
 
 Required parameters:
 
@@ -70,6 +71,7 @@ Required parameters:
 - - -
 
 ### multi($params)
+Token expires 1 year after creation.
 
 Required parameters:
 
