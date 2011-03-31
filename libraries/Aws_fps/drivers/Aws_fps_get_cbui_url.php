@@ -50,66 +50,6 @@ class Aws_fps_get_cbui_url extends Amazon_FPS_CBUIPipeline {
 	}
 
 	/**
-	 * Get CBUI URL for SingleUse
-	 * 
-	 * @param array $params 
-	 * @return string
-	 * @author Kevin Smith
-	 */
-	function single(array $params)
-	{
-		return $this->get_cbui_url('SingleUse', $params);
-	}
-	
-	/**
-	 * Get CBUI URL for Recurring
-	 * 
-	 * @param array $params 
-	 * @return string
-	 * @author Kevin Smith
-	 */
-	function recurring(array $params)
-	{
-		return $this->get_cbui_url('Recurring', $params);
-	}
-	
-	/**
-	 * Get CBUI URL for Recipient
-	 * 
-	 * @param array $params 
-	 * @return string
-	 * @author Kevin Smith
-	 */
-	function recipient(array $params)
-	{
-		return $this->get_cbui_url('Recipient', $params);
-	}
-	
-	/**
-	 * Get CBUI URL for MultiUse
-	 * 
-	 * @param array $params 
-	 * @return string
-	 * @author Kevin Smith
-	 */
-	function multi(array $params)
-	{
-		return $this->get_cbui_url('MultiUse', $params);
-	}
-	
-	/**
-	 * Get CBUI URL for EditToken
-	 * 
-	 * @param array $params 
-	 * @return string
-	 * @author Kevin Smith
-	 */
-	function edit(array $params)
-	{
-		return $this->get_cbui_url('EditToken', $params);
-	}
-	
-	/**
 	 * Get CBUI URL
 	 * 
 	 * Returns a valid URL that, when visited, will allow 
@@ -215,6 +155,66 @@ class Aws_fps_get_cbui_url extends Amazon_FPS_CBUIPipeline {
 		
 	}
 
+	/**
+	 * Get CBUI URL for SingleUse
+	 * 
+	 * @param array $params 
+	 * @return string
+	 * @author Kevin Smith
+	 */
+	function single(array $params)
+	{
+		return $this->get_cbui_url('SingleUse', $params);
+	}
+	
+	/**
+	 * Get CBUI URL for Recurring
+	 * 
+	 * @param array $params 
+	 * @return string
+	 * @author Kevin Smith
+	 */
+	function recurring(array $params)
+	{
+		return $this->get_cbui_url('Recurring', $params);
+	}
+	
+	/**
+	 * Get CBUI URL for Recipient
+	 * 
+	 * @param array $params 
+	 * @return string
+	 * @author Kevin Smith
+	 */
+	function recipient(array $params)
+	{
+		return $this->get_cbui_url('Recipient', $params);
+	}
+	
+	/**
+	 * Get CBUI URL for MultiUse
+	 * 
+	 * @param array $params 
+	 * @return string
+	 * @author Kevin Smith
+	 */
+	function multi(array $params)
+	{
+		return $this->get_cbui_url('MultiUse', $params);
+	}
+	
+	/**
+	 * Get CBUI URL for EditToken
+	 * 
+	 * @param array $params 
+	 * @return string
+	 * @author Kevin Smith
+	 */
+	function edit(array $params)
+	{
+		return $this->get_cbui_url('EditToken', $params);
+	}
+	
 }
 
 /* End of file Aws_fps_get_cbui_url.php */
