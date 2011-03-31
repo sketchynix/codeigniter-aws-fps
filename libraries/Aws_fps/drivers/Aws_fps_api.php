@@ -30,9 +30,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		$request->setTransactionAmount($amount);
 		$request->setCallerReference($data['CallerReference']);
 		
-		$response = $service->pay($request);
-		
-		return $response;
+		return $service->pay($request);
 	}
 	
 	function reserve($data = null)
@@ -49,9 +47,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		$request->setTransactionAmount($amount);
 		$request->setCallerReference($data['CallerReference']);
 		
-		$response = $service->reserve($request);
-		
-		return $response;
+		return $service->reserve($request);
 	}
 
 	function settle($data = null)
@@ -70,6 +66,18 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		$response = $service->settle($request);
 		
 		return $response;
+	}
+
+	function cancel($data = null)
+	{
+		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/CancelRequest.php';
+		
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+	
+		$request =	new Amazon_FPS_Model_CancelRequest();
+		$request->setTransactionId($data['TransactionId']);
+		
+		return $service->cancel($request);
 	}
 
 }

@@ -20,12 +20,6 @@
  * 
  */
 
-/**
- *  @see Amazon_FPS_Model
- */
-require_once ('Amazon/FPS/Model.php');  
-
-    
 
 /**
  * Amazon_FPS_Model_CancelResponse
