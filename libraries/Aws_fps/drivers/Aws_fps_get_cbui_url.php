@@ -35,7 +35,7 @@ require_once str_replace('drivers', 'base', dirname(__FILE__)).'/CBUIPipeline.ph
  * to get authorization before sending a
  * pay/reserve request.
  *
- * @package default
+ * @package AWS_FPS
  * @author Kevin Smith
  */
 class Aws_fps_get_cbui_url extends Amazon_FPS_CBUIPipeline {
@@ -74,6 +74,8 @@ class Aws_fps_get_cbui_url extends Amazon_FPS_CBUIPipeline {
 	}
 	
 	/**
+	 * Validate CBUI
+	 * 
 	 * Throws up an error if any of the parameters don't validate.
 	 *
 	 * @param string $parameters 

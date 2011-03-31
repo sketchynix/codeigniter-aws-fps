@@ -4,6 +4,15 @@ require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model.php';
 require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Client.php';
 require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/Amount.php';
 
+/**
+ * The API driver for the AWS FPS Driver Library
+ * 
+ * This driver contains all the methods necessary once registration 
+ * and authorization for a transaction has occurred.
+ *
+ * @package AWS_FPS
+ * @author Kevin Smith
+ */
 class Aws_fps_api extends Amazon_FPS_Model {
 	
 	protected $_ci = '';
@@ -16,7 +25,18 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		log_message('debug', 'AWS FPS Pay Initialized');
 	}
 	
-	function pay($data = null)
+	/**
+	 * Pay method
+	 * 
+	 * Use this method to interact with the FPS API's Pay action. 
+	 * More information at the link.
+	 *
+	 * @link http://docs.amazonwebservices.com/AmazonFPS/latest/FPSAdvancedGuide/Pay.html
+	 * @param array $data 
+	 * @return object
+	 * @author Kevin Smith
+	 */
+	function pay(array $data = null)
 	{	
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/PayRequest.php';
 
@@ -33,6 +53,17 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		return $service->pay($request);
 	}
 	
+	/**
+	 * Reserve method
+	 * 
+	 * Use this method to interact with the FPS API's Reserve action. 
+	 * More information at the link.
+	 *
+	 * @link http://docs.amazonwebservices.com/AmazonFPS/latest/FPSAdvancedGuide/Reserve.html
+	 * @param array $data 
+	 * @return object
+	 * @author Kevin Smith
+	 */
 	function reserve($data = null)
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/ReserveRequest.php';
@@ -50,6 +81,17 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		return $service->reserve($request);
 	}
 
+	/**
+	 * Settle method
+	 * 
+	 * Use this method to interact with the FPS API's Settle action. 
+	 * More information at the link.
+	 *
+	 * @link http://docs.amazonwebservices.com/AmazonFPS/latest/FPSAdvancedGuide/Settle.html
+	 * @param array $data 
+	 * @return object
+	 * @author Kevin Smith
+	 */
 	function settle($data = null)
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/SettleRequest.php';
@@ -68,6 +110,17 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		return $response;
 	}
 
+	/**
+	 * Cancel method
+	 * 
+	 * Use this method to interact with the FPS API's Cancel action. 
+	 * More information at the link.
+	 *
+	 * @link http://docs.amazonwebservices.com/AmazonFPS/latest/FPSAdvancedGuide/Cancel.html
+	 * @param array $data 
+	 * @return object
+	 * @author Kevin Smith
+	 */
 	function cancel($data = null)
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/CancelRequest.php';

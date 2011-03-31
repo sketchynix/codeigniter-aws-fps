@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Driver Library for AWS FPS
+ * Driver Library for AWS Flexible Payments Service
  *
  * @package AWS_FPS
  * @author Kevin Smith

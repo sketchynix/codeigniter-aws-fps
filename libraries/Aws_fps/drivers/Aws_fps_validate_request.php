@@ -31,7 +31,7 @@ require_once str_replace('drivers', 'base', dirname(__FILE__)).'/SignatureUtilsF
 /**
  * Validates a Return URL or IPN
  *
- * @package default
+ * @package AWS_FPS
  * @author Kevin Smith
  */
 class Aws_fps_validate_request extends Amazon_FPS_SignatureUtilsForOutbound {
