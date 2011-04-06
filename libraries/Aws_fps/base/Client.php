@@ -44,6 +44,7 @@ class Amazon_FPS_Client extends CI_Driver implements Amazon_FPS_Interface
     private  $_awsSecretAccessKey = null;
 
     /** @var array */
+	// TODO: Sandbox setting - Make sure and change this before going live.
     private  $_config = array ('ServiceURL' => 'https://fps.sandbox.amazonaws.com',
                                'UserAgent' => 'Amazon FPS PHP5 Library',
                                'SignatureVersion' => 2,

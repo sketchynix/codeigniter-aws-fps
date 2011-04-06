@@ -24,6 +24,17 @@ $config['aws_access_key_id'] = '';
 
 $config['aws_secret_access_key'] = '';
 
+/*
+|--------------------------------------------------------------------------
+| Using Sandbox?
+|--------------------------------------------------------------------------
+|
+| If this is in a development environment, you'll most likely set this to 
+| TRUE. If not using the Payments Sandbox, set to FALSE.
+| TODO: Work this setting into the actual code.
+|
+*/
+$config['sandbox']	= TRUE;
 
 
 // --------------------------------------------------------------------

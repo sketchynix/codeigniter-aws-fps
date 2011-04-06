@@ -36,6 +36,8 @@ class Amazon_FPS_CBUIPipeline extends CI_Driver {
 
     /**
      * The default URL corresponds to production environment. Change the URL for sandbox environment.
+     * TODO: Sandbox setting - Make sure and change this before going live.
+     * 
      */ 
     protected static $CBUI_URL = "https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start";
 
