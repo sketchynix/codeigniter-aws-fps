@@ -43,12 +43,14 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	
 		$request =	new Amazon_FPS_Model_PayRequest();
 		$request->setSenderTokenId($data['SenderTokenId']);
+		if ($data['RecipientTokenId'])
+			$request->setRecipientTokenId($data['RecipientTokenId']);
 		$amount = new Amazon_FPS_Model_Amount();
 		$amount->setCurrencyCode($data['CurrencyCode']);
 		$amount->setValue($data['Value']);
 		$request->setTransactionAmount($amount);
 		$request->setCallerReference($data['CallerReference']);
-		
+			
 		return $service->pay($request);
 	}
 	
