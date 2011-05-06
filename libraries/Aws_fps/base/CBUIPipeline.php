@@ -25,7 +25,7 @@
  * Base class for CBUI pipelines. 
  */
 class Amazon_FPS_CBUIPipeline extends CI_Driver {
-
+	
 	const SIGNATURE_KEYNAME = "signature";
 	const SIGNATURE_METHOD_KEYNAME = "signatureMethod";
 	const SIGNATURE_VERSION_KEYNAME = "signatureVersion";
@@ -35,11 +35,10 @@ class Amazon_FPS_CBUIPipeline extends CI_Driver {
     const HTTP_GET_METHOD = "GET";
 
     /**
-     * The default URL corresponds to production environment. Change the URL for sandbox environment.
-     * TODO: Sandbox setting - Make sure and change this before going live.
+     * The default URL corresponds to production environment. This is changed based on the value in the aws_fps config file.
      * 
      */ 
-    protected static $CBUI_URL = "https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start";
+    protected static $CBUI_URL;
 
     /**
      * Array to store the name value pairs of the request
@@ -65,10 +64,19 @@ class Amazon_FPS_CBUIPipeline extends CI_Driver {
      * @param string $accessKeyId    Amazon Web Services Access Key ID.
      * @param string $secretAccessKey   Amazon Web Services Secret Access Key.
      */
-    function Amazon_FPS_CBUIPipeline($pipelineName, $awsAccessKey, $awsSecretKey) {
+    function Amazon_FPS_CBUIPipeline($pipelineName, $awsAccessKey, $awsSecretKey, $sandbox) {
         $this->awsSecretKey = $awsSecretKey;
         $this->awsAccessKey = $awsAccessKey;
         
+		if($sandbox !== false)
+		{
+			self::$CBUI_URL = "https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start";
+		}
+		else
+		{
+			self::$CBUI_URL = "https://authorize.payments.amazon.com/cobranded-ui/actions/start";
+		}
+
         //Add default parameters
         $this->addParameter("callerKey", $awsAccessKey);
         $this->addParameter("pipelineName", $pipelineName);

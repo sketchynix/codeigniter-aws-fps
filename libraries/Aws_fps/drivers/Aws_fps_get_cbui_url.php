@@ -63,7 +63,7 @@ class Aws_fps_get_cbui_url extends Amazon_FPS_CBUIPipeline {
 	 */
 	function get_cbui_url($pipelineName, array $params)
 	{
-		parent::Amazon_FPS_CBUIPipeline($pipelineName, $this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+		parent::Amazon_FPS_CBUIPipeline($pipelineName, $this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'), $this->_ci->config->item('sandbox'));
 		
 		foreach ($params as $key => $value)
 		{

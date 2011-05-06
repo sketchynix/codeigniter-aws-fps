@@ -19,7 +19,6 @@ class Aws_fps_api extends Amazon_FPS_Model {
    
 	function __construct($data = null)
 	{
-	
 		$this->_ci =& get_instance();
 		
 		log_message('debug', 'AWS FPS Pay Initialized');
@@ -131,6 +130,29 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		$request->setTransactionId($data['TransactionId']);
 		
 		return $service->cancel($request);
+	}
+
+	/**
+	 * Cancel Token method
+	 * 
+	 * Use this method to interact with the FPS API's CancelToken action. 
+	 * More information at the link.
+	 *
+	 * @link http://docs.amazonwebservices.com/AmazonFPS/latest/FPSAdvancedGuide/CancelToken.html
+	 * @param array $data 
+	 * @return object
+	 * @author Kevin Smith
+	 */
+	function canceltoken($data = null)
+	{
+		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/CancelTokenRequest.php';
+		
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+	
+		$request =	new Amazon_FPS_Model_CancelTokenRequest();
+		$request->setTokenId($data['TokenId']);
+		
+		return $service->cancelToken($request);
 	}
 
 }
