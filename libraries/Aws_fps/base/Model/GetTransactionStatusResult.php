@@ -19,13 +19,7 @@
  *  Generated: Wed Sep 23 03:35:04 PDT 2009
  * 
  */
-
-/**
- *  @see Amazon_FPS_Model
- */
-require_once ('Amazon/FPS/Model.php');  
-
-    
+   
 
 /**
  * Amazon_FPS_Model_GetTransactionStatusResult

@@ -17,7 +17,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	
 	protected $_ci = '';
    
-	function __construct($data = null)
+	function __construct($data = NULL)
 	{
 		$this->_ci =& get_instance();
 		
@@ -35,7 +35,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	 * @return object
 	 * @author Kevin Smith
 	 */
-	function pay(array $data = null)
+	function pay(array $data = NULL)
 	{	
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/PayRequest.php';
 
@@ -65,7 +65,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	 * @return object
 	 * @author Kevin Smith
 	 */
-	function reserve($data = null)
+	function reserve($data = NULL)
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/ReserveRequest.php';
 		
@@ -93,7 +93,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	 * @return object
 	 * @author Kevin Smith
 	 */
-	function settle($data = null)
+	function settle($data = NULL)
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/SettleRequest.php';
 		
@@ -122,7 +122,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	 * @return object
 	 * @author Kevin Smith
 	 */
-	function cancel($data = null)
+	function cancel($data = NULL)
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/CancelRequest.php';
 		
@@ -145,7 +145,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	 * @return object
 	 * @author Kevin Smith
 	 */
-	function canceltoken($data = null)
+	function canceltoken($data = NULL)
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/CancelTokenRequest.php';
 		
@@ -155,6 +155,30 @@ class Aws_fps_api extends Amazon_FPS_Model {
 		$request->setTokenId($data['TokenId']);
 		
 		return $service->cancelToken($request);
+	}
+	
+	/**
+	 * Get Transaction Status method
+	 * 
+	 * Use this method to interact with the FPS API's GetTransactionStatus action. 
+	 * More information at the link.
+	 *
+	 * @link http://docs.amazonwebservices.com/AmazonFPS/latest/FPSAdvancedGuide/GetTransactionStatus.html
+	 * @param array $data 
+	 * @return object
+	 * @author Kevin Smith
+	 */
+	function gettransactionstatus($data = NULL)
+	{
+		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/GetTransactionStatusRequest.php';
+
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+		
+		$request =  new Amazon_FPS_Model_GetTransactionStatusRequest();
+		$request->setTransactionId($data['TransactionId']);
+
+		return $service->GetTransactionStatus($request);
+		
 	}
 
 }
