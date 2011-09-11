@@ -732,6 +732,7 @@ class Amazon_FPS_Client extends CI_Driver implements Amazon_FPS_Interface
         } catch (Amazon_FPS_Exception $se) {
             throw $se;
         } catch (Exception $t) {
+            require_once (dirname(__FILE__).'/Exception.php');
             throw new Amazon_FPS_Exception(array('Exception' => $t, 'Message' => $t->getMessage()));
         }
 
