@@ -39,7 +39,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	{	
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/PayRequest.php';
 
-		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'), NULL, $this->_ci->config->item('sandbox'));
 	
 		$request =	new Amazon_FPS_Model_PayRequest();
 		$request->setSenderTokenId($data['SenderTokenId']);
@@ -69,7 +69,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/ReserveRequest.php';
 		
-		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'), NULL, $this->_ci->config->item('sandbox'));
 	
 		$request =	new Amazon_FPS_Model_ReserveRequest();
 		$request->setSenderTokenId($data['SenderTokenId']);
@@ -97,7 +97,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/SettleRequest.php';
 		
-		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'), NULL, $this->_ci->config->item('sandbox'));
 	
 		$request =	new Amazon_FPS_Model_SettleRequest();
 		$request->setReserveTransactionId($data['ReserveTransactionId']);
@@ -126,7 +126,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/CancelRequest.php';
 		
-		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'), NULL, $this->_ci->config->item('sandbox'));
 	
 		$request =	new Amazon_FPS_Model_CancelRequest();
 		$request->setTransactionId($data['TransactionId']);
@@ -149,7 +149,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/CancelTokenRequest.php';
 		
-		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'), NULL, $this->_ci->config->item('sandbox'));
 	
 		$request =	new Amazon_FPS_Model_CancelTokenRequest();
 		$request->setTokenId($data['TokenId']);
@@ -172,7 +172,7 @@ class Aws_fps_api extends Amazon_FPS_Model {
 	{
 		require_once str_replace('drivers', 'base', dirname(__FILE__)).'/Model/GetTransactionStatusRequest.php';
 
-		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'));
+		$service = new Amazon_FPS_Client($this->_ci->config->item('aws_access_key_id'), $this->_ci->config->item('aws_secret_access_key'), NULL, $this->_ci->config->item('sandbox'));
 		
 		$request =  new Amazon_FPS_Model_GetTransactionStatusRequest();
 		$request->setTransactionId($data['TransactionId']);

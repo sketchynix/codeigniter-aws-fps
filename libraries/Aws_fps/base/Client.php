@@ -44,9 +44,7 @@ class Amazon_FPS_Client extends CI_Driver implements Amazon_FPS_Interface
     private  $_awsSecretAccessKey = null;
 
     /** @var array */
-	// TODO: Sandbox setting - Make sure and change this before going live.
-    private  $_config = array ('ServiceURL' => 'https://fps.sandbox.amazonaws.com',
-                               'UserAgent' => 'Amazon FPS PHP5 Library',
+    private  $_config = array ('UserAgent' => 'Amazon FPS PHP5 Library',
                                'SignatureVersion' => 2,
                                'SignatureMethod' => 'HmacSHA256',
                                'ProxyHost' => null,
@@ -71,7 +69,7 @@ class Amazon_FPS_Client extends CI_Driver implements Amazon_FPS_Interface
      * <li>MaxErrorRetry</li>
      * </ul>
      */
-    public function __construct($awsAccessKeyId, $awsSecretAccessKey, $config = null)
+    public function __construct($awsAccessKeyId, $awsSecretAccessKey, $config = null, $sandbox = TRUE)
     {
         iconv_set_encoding('output_encoding', 'UTF-8');
         iconv_set_encoding('input_encoding', 'UTF-8');
@@ -79,7 +77,17 @@ class Amazon_FPS_Client extends CI_Driver implements Amazon_FPS_Interface
 
         $this->_awsAccessKeyId = $awsAccessKeyId;
         $this->_awsSecretAccessKey = $awsSecretAccessKey;
-        if (!is_null($config)) $this->_config = array_merge($this->_config, $config);
+
+		if ($sandbox === TRUE)
+		{
+			$config['ServiceURL']	= 'https://fps.sandbox.amazonaws.com';
+		}
+		else
+		{
+			$config['ServiceURL']	= 'https://fps.amazonaws.com';
+		}
+		
+	    if (!is_null($config)) $this->_config = array_merge($this->_config, $config);
     }
 
     // Public API ------------------------------------------------------------//
